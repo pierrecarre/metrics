@@ -44,12 +44,12 @@ public class Histogram implements Metric, Sampling, Counting {
      *
      * @return the number of values recorded
      */
-    @Override
+
     public long getCount() {
         return count.sum();
     }
 
-    @Override
+
     public Snapshot getSnapshot() {
         return reservoir.getSnapshot();
     }

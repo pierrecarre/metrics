@@ -20,17 +20,17 @@ public class SlidingWindowReservoir implements Reservoir {
         this.count = 0;
     }
 
-    @Override
+
     public synchronized int size() {
         return (int) min(count, measurements.length);
     }
 
-    @Override
+
     public synchronized void update(long value) {
         measurements[(int) (count++ % measurements.length)] = value;
     }
 
-    @Override
+
     public Snapshot getSnapshot() {
         final long[] values = new long[size()];
         for (int i = 0; i < values.length; i++) {

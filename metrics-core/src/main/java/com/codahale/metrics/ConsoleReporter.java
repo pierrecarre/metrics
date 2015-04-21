@@ -164,7 +164,7 @@ public class ConsoleReporter extends ScheduledReporter {
         dateFormat.setTimeZone(timeZone);
     }
 
-    @Override
+
     public void report(SortedMap<String, Gauge> gauges,
                        SortedMap<String, Counter> counters,
                        SortedMap<String, Histogram> histograms,

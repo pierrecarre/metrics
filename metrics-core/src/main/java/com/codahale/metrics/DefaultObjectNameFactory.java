@@ -10,7 +10,7 @@ public class DefaultObjectNameFactory implements ObjectNameFactory {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(DefaultObjectNameFactory.class);
 
-	@Override
+
 	public ObjectName createName(String type, String domain, String name) {
 		try {
 			ObjectName objectName = new ObjectName(domain, "name", name);

@@ -163,7 +163,7 @@ public class JmxReporter implements Reporter, Closeable {
             this.objectName = objectName;
         }
 
-        @Override
+
         public ObjectName objectName() {
             return objectName;
         }
@@ -184,7 +184,7 @@ public class JmxReporter implements Reporter, Closeable {
             this.metric = metric;
         }
 
-        @Override
+
         public Object getValue() {
             return metric.getValue();
         }
@@ -205,7 +205,7 @@ public class JmxReporter implements Reporter, Closeable {
             this.metric = metric;
         }
 
-        @Override
+
         public long getCount() {
             return metric.getCount();
         }
@@ -249,67 +249,67 @@ public class JmxReporter implements Reporter, Closeable {
             this.objectName = objectName;
         }
 
-        @Override
+
         public ObjectName objectName() {
             return objectName;
         }
 
-        @Override
+
         public double get50thPercentile() {
             return metric.getSnapshot().getMedian();
         }
 
-        @Override
+
         public long getCount() {
             return metric.getCount();
         }
 
-        @Override
+
         public long getMin() {
             return metric.getSnapshot().getMin();
         }
 
-        @Override
+
         public long getMax() {
             return metric.getSnapshot().getMax();
         }
 
-        @Override
+
         public double getMean() {
             return metric.getSnapshot().getMean();
         }
 
-        @Override
+
         public double getStdDev() {
             return metric.getSnapshot().getStdDev();
         }
 
-        @Override
+
         public double get75thPercentile() {
             return metric.getSnapshot().get75thPercentile();
         }
 
-        @Override
+
         public double get95thPercentile() {
             return metric.getSnapshot().get95thPercentile();
         }
 
-        @Override
+
         public double get98thPercentile() {
             return metric.getSnapshot().get98thPercentile();
         }
 
-        @Override
+
         public double get99thPercentile() {
             return metric.getSnapshot().get99thPercentile();
         }
 
-        @Override
+
         public double get999thPercentile() {
             return metric.getSnapshot().get999thPercentile();
         }
 
-        @Override
+
         public long[] values() {
             return metric.getSnapshot().getValues();
         }
@@ -344,32 +344,32 @@ public class JmxReporter implements Reporter, Closeable {
             this.rateUnit = "events/" + calculateRateUnit(rateUnit);
         }
 
-        @Override
+
         public long getCount() {
             return metric.getCount();
         }
 
-        @Override
+
         public double getMeanRate() {
             return metric.getMeanRate() * rateFactor;
         }
 
-        @Override
+
         public double getOneMinuteRate() {
             return metric.getOneMinuteRate() * rateFactor;
         }
 
-        @Override
+
         public double getFiveMinuteRate() {
             return metric.getFiveMinuteRate() * rateFactor;
         }
 
-        @Override
+
         public double getFifteenMinuteRate() {
             return metric.getFifteenMinuteRate() * rateFactor;
         }
 
-        @Override
+
         public String getRateUnit() {
             return rateUnit;
         }
@@ -423,62 +423,62 @@ public class JmxReporter implements Reporter, Closeable {
             this.durationUnit = durationUnit.toString().toLowerCase(Locale.US);
         }
 
-        @Override
+
         public double get50thPercentile() {
             return metric.getSnapshot().getMedian() * durationFactor;
         }
 
-        @Override
+
         public double getMin() {
             return metric.getSnapshot().getMin() * durationFactor;
         }
 
-        @Override
+
         public double getMax() {
             return metric.getSnapshot().getMax() * durationFactor;
         }
 
-        @Override
+
         public double getMean() {
             return metric.getSnapshot().getMean() * durationFactor;
         }
 
-        @Override
+
         public double getStdDev() {
             return metric.getSnapshot().getStdDev() * durationFactor;
         }
 
-        @Override
+
         public double get75thPercentile() {
             return metric.getSnapshot().get75thPercentile() * durationFactor;
         }
 
-        @Override
+
         public double get95thPercentile() {
             return metric.getSnapshot().get95thPercentile() * durationFactor;
         }
 
-        @Override
+
         public double get98thPercentile() {
             return metric.getSnapshot().get98thPercentile() * durationFactor;
         }
 
-        @Override
+
         public double get99thPercentile() {
             return metric.getSnapshot().get99thPercentile() * durationFactor;
         }
 
-        @Override
+
         public double get999thPercentile() {
             return metric.getSnapshot().get999thPercentile() * durationFactor;
         }
 
-        @Override
+
         public long[] values() {
             return metric.getSnapshot().getValues();
         }
 
-        @Override
+
         public String getDurationUnit() {
             return durationUnit;
         }
@@ -522,7 +522,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onGaugeAdded(String name, Gauge<?> gauge) {
             try {
                 if (filter.matches(name, gauge)) {
@@ -536,7 +536,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onGaugeRemoved(String name) {
             try {
                 final ObjectName objectName = createName("gauges", name);
@@ -548,7 +548,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onCounterAdded(String name, Counter counter) {
             try {
                 if (filter.matches(name, counter)) {
@@ -562,7 +562,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onCounterRemoved(String name) {
             try {
                 final ObjectName objectName = createName("counters", name);
@@ -574,7 +574,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onHistogramAdded(String name, Histogram histogram) {
             try {
                 if (filter.matches(name, histogram)) {
@@ -588,7 +588,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onHistogramRemoved(String name) {
             try {
                 final ObjectName objectName = createName("histograms", name);
@@ -600,7 +600,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onMeterAdded(String name, Meter meter) {
             try {
                 if (filter.matches(name, meter)) {
@@ -614,7 +614,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onMeterRemoved(String name) {
             try {
                 final ObjectName objectName = createName("meters", name);
@@ -626,7 +626,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onTimerAdded(String name, Timer timer) {
             try {
                 if (filter.matches(name, timer)) {
@@ -640,7 +640,7 @@ public class JmxReporter implements Reporter, Closeable {
             }
         }
 
-        @Override
+
         public void onTimerRemoved(String name) {
             try {
                 final ObjectName objectName = createName("timers", name);
@@ -726,7 +726,7 @@ public class JmxReporter implements Reporter, Closeable {
     /**
      * Stops the reporter.
      */
-    @Override
+
     public void close() {
         stop();
     }

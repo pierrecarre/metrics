@@ -1,6 +1,6 @@
 package com.codahale.metrics;
 
-import java.util.concurrent.ConcurrentSkipListMap;
+import jsr166.java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -45,13 +45,13 @@ public class SlidingTimeWindowReservoir implements Reservoir {
         this.count = new AtomicLong();
     }
 
-    @Override
+
     public int size() {
         trim();
         return measurements.size();
     }
 
-    @Override
+
     public void update(long value) {
         if (count.incrementAndGet() % TRIM_THRESHOLD == 0) {
             trim();
@@ -59,7 +59,7 @@ public class SlidingTimeWindowReservoir implements Reservoir {
         measurements.put(getTick(), value);
     }
 
-    @Override
+
     public Snapshot getSnapshot() {
         trim();
         return new UniformSnapshot(measurements.values());

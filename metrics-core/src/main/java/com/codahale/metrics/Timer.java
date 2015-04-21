@@ -37,7 +37,7 @@ public class Timer implements Metered, Sampling {
         }
 
         /** Equivalent to calling {@link #stop()}. */
-        @Override
+
         public void close() {
             stop();
         }
@@ -114,32 +114,32 @@ public class Timer implements Metered, Sampling {
         return new Context(this, clock);
     }
 
-    @Override
+
     public long getCount() {
         return histogram.getCount();
     }
 
-    @Override
+
     public double getFifteenMinuteRate() {
         return meter.getFifteenMinuteRate();
     }
 
-    @Override
+
     public double getFiveMinuteRate() {
         return meter.getFiveMinuteRate();
     }
 
-    @Override
+
     public double getMeanRate() {
         return meter.getMeanRate();
     }
 
-    @Override
+
     public double getOneMinuteRate() {
         return meter.getOneMinuteRate();
     }
 
-    @Override
+
     public Snapshot getSnapshot() {
         return histogram.getSnapshot();
     }

@@ -40,7 +40,7 @@ public abstract class Clock {
      * A clock implementation which returns the current time in epoch nanoseconds.
      */
     public static class UserTimeClock extends Clock {
-        @Override
+
         public long getTick() {
             return System.nanoTime();
         }
@@ -52,7 +52,7 @@ public abstract class Clock {
     public static class CpuTimeClock extends Clock {
         private static final ThreadMXBean THREAD_MX_BEAN = ManagementFactory.getThreadMXBean();
 
-        @Override
+
         public long getTick() {
             return THREAD_MX_BEAN.getCurrentThreadCpuTime();
         }

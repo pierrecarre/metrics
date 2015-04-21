@@ -16,27 +16,27 @@
     <url>http://metrics.dropwizard.io/</url>
 
     <modules>
-        <module>metrics-annotation</module>
-        <module>metrics-benchmarks</module>
+        <!--<module>metrics-annotation</module>-->
+        <!--<module>metrics-benchmarks</module>-->
         <module>metrics-core</module>
         <module>metrics-healthchecks</module>
-        <module>metrics-ehcache</module>
-        <module>metrics-ganglia</module>
-        <module>metrics-graphite</module>
-        <module>metrics-httpclient</module>
-        <module>metrics-httpasyncclient</module>
-        <module>metrics-jdbi</module>
-        <module>metrics-jersey</module>
-        <module>metrics-jersey2</module>
-        <module>metrics-jetty8</module>
-        <module>metrics-jetty9</module>
-        <module>metrics-jetty9-legacy</module>
+        <!--<module>metrics-ehcache</module>-->
+        <!--<module>metrics-ganglia</module>-->
+        <!--<module>metrics-graphite</module>-->
+        <!--<module>metrics-httpclient</module>-->
+        <!--<module>metrics-httpasyncclient</module>-->
+        <!--<module>metrics-jdbi</module>-->
+        <!--<module>metrics-jersey</module>-->
+        <!--<module>metrics-jersey2</module>-->
+        <!--<module>metrics-jetty8</module>-->
+        <!--<module>metrics-jetty9</module>-->
+        <!--<module>metrics-jetty9-legacy</module>-->
         <module>metrics-json</module>
         <module>metrics-jvm</module>
-        <module>metrics-log4j</module>
-        <module>metrics-log4j2</module>
-        <module>metrics-logback</module>
-        <module>metrics-servlet</module>
+        <!--<module>metrics-log4j</module>-->
+        <!--<module>metrics-log4j2</module>-->
+        <!--<module>metrics-logback</module>-->
+        <!--<module>metrics-servlet</module>-->
         <module>metrics-servlets</module>
     </modules>
 
@@ -191,6 +191,65 @@
                         </executions>
                         <configuration>
                             <keyname>4D13335B</keyname>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <profile>
+            <id>jdk5-support</id>
+            <activation>
+                <property>
+                    <name>jdk5</name>
+                </property>
+            </activation>
+            <properties>
+                <servlet.version>2.5.0</servlet.version>
+            </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.1</version>
+                        <configuration>
+                            <source>1.5</source>
+                            <target>1.5</target>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-toolchains-plugin</artifactId>
+                        <version>1.0</version>
+                        <executions>
+                            <execution>
+                                <phase>validate</phase>
+                                <goals>
+                                    <goal>toolchain</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <toolchains>
+                                <jdk>
+                                    <version>1.5</version>
+                                    <vendor>sun</vendor>
+                                </jdk>
+                            </toolchains>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <version>2.4</version>
+                        <configuration>
+                            <classifier>jdk5</classifier>
+                            <archive>
+                                <manifest>
+                                    <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                                </manifest>
+                            </archive>
                         </configuration>
                     </plugin>
                 </plugins>

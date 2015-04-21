@@ -41,7 +41,7 @@ public class WeightedSnapshot extends Snapshot {
         final WeightedSample[] copy = values.toArray( new WeightedSample[]{} );
     
         Arrays.sort(copy, new Comparator<WeightedSample>() {
-            @Override
+
             public int compare(WeightedSample o1, WeightedSample o2) {
                 if (o1.value > o2.value)
                     return 1;
@@ -77,7 +77,7 @@ public class WeightedSnapshot extends Snapshot {
      * @param quantile    a given quantile, in {@code [0..1]}
      * @return the value in the distribution at {@code quantile}
      */
-    @Override
+
     public double getValue(double quantile) {
         if (quantile < 0.0 || quantile > 1.0 || Double.isNaN( quantile )) {
             throw new IllegalArgumentException(quantile + " is not in [0..1]");
@@ -107,7 +107,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @return the number of values
      */
-    @Override
+
     public int size() {
         return values.length;
     }
@@ -117,7 +117,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @return the entire set of values
      */
-    @Override
+
     public long[] getValues() {
         return Arrays.copyOf(values, values.length);
     }
@@ -127,7 +127,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @return the highest value
      */
-    @Override
+
     public long getMax() {
         if (values.length == 0) {
             return 0;
@@ -140,7 +140,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @return the lowest value
      */
-    @Override
+
     public long getMin() {
         if (values.length == 0) {
             return 0;
@@ -153,7 +153,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @return the weighted arithmetic mean
      */
-    @Override
+
     public double getMean() {
         if (values.length == 0) {
             return 0;
@@ -171,7 +171,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @return the weighted standard deviation value
      */
-    @Override
+
     public double getStdDev() {
         // two-pass algorithm for variance, avoids numeric overflow
 
@@ -195,7 +195,7 @@ public class WeightedSnapshot extends Snapshot {
      *
      * @param output an output stream
      */
-    @Override
+
     public void dump(OutputStream output) {
         final PrintWriter out = new PrintWriter(new OutputStreamWriter(output, UTF_8));
         try {

@@ -39,7 +39,8 @@
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
+            <!--<artifactId>javax.servlet-api</artifactId>-->
+            <artifactId>servlet-api</artifactId>
             <version>${servlet.version}</version>
             <scope>provided</scope>
         </dependency>
@@ -54,11 +55,11 @@
             <version>${jetty9.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+<!--        <dependency>
             <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-jetty9</artifactId>
             <version>${project.version}</version>
             <scope>test</scope>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>

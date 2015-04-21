@@ -46,7 +46,7 @@ public abstract class RatioGauge implements Gauge<Double> {
             return numerator / d;
         }
 
-        @Override
+
         public String toString() {
             return numerator + ":" + denominator;
         }
@@ -59,7 +59,7 @@ public abstract class RatioGauge implements Gauge<Double> {
      */
     protected abstract Ratio getRatio();
 
-    @Override
+
     public Double getValue() {
         return getRatio().getValue();
     }

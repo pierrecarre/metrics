@@ -2,7 +2,7 @@ package com.codahale.metrics;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+import jsr166.java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
 
@@ -39,7 +39,7 @@ public class UniformReservoir implements Reservoir {
         count.set(0);
     }
 
-    @Override
+    
     public int size() {
         final long c = count.get();
         if (c > values.length()) {
@@ -48,7 +48,7 @@ public class UniformReservoir implements Reservoir {
         return (int) c;
     }
 
-    @Override
+    
     public void update(long value) {
         final long c = count.incrementAndGet();
         if (c <= values.length()) {
@@ -77,7 +77,7 @@ public class UniformReservoir implements Reservoir {
         return val;
     }
 
-    @Override
+    
     public Snapshot getSnapshot() {
         final int s = size();
         final List<Long> copy = new ArrayList<Long>(s);

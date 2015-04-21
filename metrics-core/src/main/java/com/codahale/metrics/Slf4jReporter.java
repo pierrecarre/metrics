@@ -176,7 +176,7 @@ public class Slf4jReporter extends ScheduledReporter {
         this.prefix = prefix;
     }
 
-    @Override
+
     public void report(SortedMap<String, Gauge> gauges,
                        SortedMap<String, Counter> counters,
                        SortedMap<String, Histogram> histograms,
@@ -270,7 +270,7 @@ public class Slf4jReporter extends ScheduledReporter {
         loggerProxy.log(marker, "type=GAUGE, name={}, value={}", prefix(name), gauge.getValue());
     }
 
-    @Override
+
     protected String getRateUnit() {
         return "events/" + super.getRateUnit();
     }
@@ -298,12 +298,12 @@ public class Slf4jReporter extends ScheduledReporter {
             super(logger);
         }
 
-        @Override
+
         public void log(Marker marker, String format, Object... arguments) {
             logger.debug(marker, format, arguments);
         }
 
-        @Override
+
         public boolean isEnabled(Marker marker) {
             return logger.isDebugEnabled(marker);
         }
@@ -315,12 +315,12 @@ public class Slf4jReporter extends ScheduledReporter {
             super(logger);
         }
 
-        @Override
+
         public void log(Marker marker, String format, Object... arguments) {
             logger.trace(marker, format, arguments);
         }
 
-        @Override
+
         public boolean isEnabled(Marker marker) {
             return logger.isTraceEnabled(marker);
         }
@@ -332,12 +332,12 @@ public class Slf4jReporter extends ScheduledReporter {
             super(logger);
         }
 
-        @Override
+
         public void log(Marker marker, String format, Object... arguments) {
             logger.info(marker, format, arguments);
         }
 
-        @Override
+
         public boolean isEnabled(Marker marker) {
             return logger.isInfoEnabled(marker);
         }
@@ -349,12 +349,12 @@ public class Slf4jReporter extends ScheduledReporter {
             super(logger);
         }
 
-        @Override
+
         public void log(Marker marker, String format, Object... arguments) {
             logger.warn(marker, format, arguments);
         }
 
-        @Override
+
         public boolean isEnabled(Marker marker) {
             return logger.isWarnEnabled(marker);
         }
@@ -366,12 +366,12 @@ public class Slf4jReporter extends ScheduledReporter {
             super(logger);
         }
 
-        @Override
+
         public void log(Marker marker, String format, Object... arguments) {
             logger.error(marker, format, arguments);
         }
 
-        @Override
+
         public boolean isEnabled(Marker marker) {
             return logger.isErrorEnabled(marker);
         }

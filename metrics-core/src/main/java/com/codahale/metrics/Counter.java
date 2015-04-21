@@ -47,7 +47,7 @@ public class Counter implements Metric, Counting {
      *
      * @return the counter's current value
      */
-    @Override
+
     public long getCount() {
         return count.sum();
     }

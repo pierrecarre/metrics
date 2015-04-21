@@ -10,43 +10,43 @@ public interface MetricRegistryListener extends EventListener {
      * A no-op implementation of {@link MetricRegistryListener}.
      */
     abstract class Base implements MetricRegistryListener {
-        @Override
+
         public void onGaugeAdded(String name, Gauge<?> gauge) {
         }
 
-        @Override
+
         public void onGaugeRemoved(String name) {
         }
 
-        @Override
+
         public void onCounterAdded(String name, Counter counter) {
         }
 
-        @Override
+
         public void onCounterRemoved(String name) {
         }
 
-        @Override
+
         public void onHistogramAdded(String name, Histogram histogram) {
         }
 
-        @Override
+
         public void onHistogramRemoved(String name) {
         }
 
-        @Override
+
         public void onMeterAdded(String name, Meter meter) {
         }
 
-        @Override
+
         public void onMeterRemoved(String name) {
         }
 
-        @Override
+        
         public void onTimerAdded(String name, Timer timer) {
         }
 
-        @Override
+
         public void onTimerRemoved(String name) {
         }
     }

@@ -138,7 +138,7 @@ public class CsvReporter extends ScheduledReporter {
         this.clock = clock;
     }
 
-    @Override
+
     public void report(SortedMap<String, Gauge> gauges,
                        SortedMap<String, Counter> counters,
                        SortedMap<String, Histogram> histograms,

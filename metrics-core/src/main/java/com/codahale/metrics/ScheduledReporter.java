@@ -39,7 +39,7 @@ public abstract class ScheduledReporter implements Closeable, Reporter {
             this.namePrefix = "metrics-" + name + "-thread-";
         }
 
-        @Override
+
         public Thread newThread(Runnable r) {
             final Thread t = new Thread(group, r, namePrefix + threadNumber.getAndIncrement(), 0);
             t.setDaemon(true);
@@ -109,7 +109,7 @@ public abstract class ScheduledReporter implements Closeable, Reporter {
      */
     public void start(long period, TimeUnit unit) {
         executor.scheduleAtFixedRate(new Runnable() {
-            @Override
+
             public void run() {
                 try {
                     report();
@@ -147,7 +147,7 @@ public abstract class ScheduledReporter implements Closeable, Reporter {
     /**
      * Stops the reporter and shuts down its thread of execution.
      */
-    @Override
+
     public void close() {
         stop();
     }

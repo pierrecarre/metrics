@@ -18,7 +18,7 @@ public abstract class DerivativeGauge<F, T> implements Gauge<T> {
         this.base = base;
     }
 
-    @Override
+
     public T getValue() {
         return transform(base.getValue());
     }

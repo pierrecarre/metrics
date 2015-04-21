@@ -44,7 +44,7 @@ public class InstrumentedThreadFactory implements ThreadFactory {
     /**
      * {@inheritDoc}
      */
-    @Override
+
     public Thread newThread(Runnable runnable) {
         Runnable wrappedRunnable = new InstrumentedRunnable(runnable);
         Thread thread = delegate.newThread(wrappedRunnable);
@@ -59,7 +59,7 @@ public class InstrumentedThreadFactory implements ThreadFactory {
             this.task = task;
         }
 
-        @Override
+
         public void run() {
             running.inc();
             try {

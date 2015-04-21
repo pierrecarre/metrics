@@ -76,24 +76,24 @@ public class Meter implements Metered {
         }
     }
 
-    @Override
+
     public long getCount() {
         return count.sum();
     }
 
-    @Override
+
     public double getFifteenMinuteRate() {
         tickIfNecessary();
         return m15Rate.getRate(TimeUnit.SECONDS);
     }
 
-    @Override
+
     public double getFiveMinuteRate() {
         tickIfNecessary();
         return m5Rate.getRate(TimeUnit.SECONDS);
     }
 
-    @Override
+
     public double getMeanRate() {
         if (getCount() == 0) {
             return 0.0;
@@ -103,7 +103,7 @@ public class Meter implements Metered {
         }
     }
 
-    @Override
+
     public double getOneMinuteRate() {
         tickIfNecessary();
         return m1Rate.getRate(TimeUnit.SECONDS);

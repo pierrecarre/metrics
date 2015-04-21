@@ -45,7 +45,7 @@ public abstract class CachedGauge<T> implements Gauge<T> {
      */
     protected abstract T loadValue();
 
-    @Override
+
     public T getValue() {
         if (shouldLoad()) {
             this.value = loadValue();

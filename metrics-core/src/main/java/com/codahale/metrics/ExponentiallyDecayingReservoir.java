@@ -1,8 +1,8 @@
 package com.codahale.metrics;
 
 import java.util.ArrayList;
-import java.util.concurrent.ConcurrentSkipListMap;
-import java.util.concurrent.ThreadLocalRandom;
+import jsr166.java.util.concurrent.ConcurrentSkipListMap;
+import jsr166.java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
@@ -74,12 +74,12 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
         this.nextScaleTime = new AtomicLong(clock.getTick() + RESCALE_THRESHOLD);
     }
 
-    @Override
+
     public int size() {
         return (int) min(size, count.get());
     }
 
-    @Override
+
     public void update(long value) {
         update(value, currentTimeInSeconds());
     }
@@ -123,7 +123,7 @@ public class ExponentiallyDecayingReservoir implements Reservoir {
         }
     }
 
-    @Override
+
     public Snapshot getSnapshot() {
         lockForRegularUsage();
         try {

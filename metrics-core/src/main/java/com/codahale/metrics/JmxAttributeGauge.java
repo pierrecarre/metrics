@@ -37,7 +37,7 @@ public class JmxAttributeGauge implements Gauge<Object> {
         this.attributeName = attributeName;
     }
 
-    @Override
+
     public Object getValue() {
         try {
             return mBeanServerConn.getAttribute(objectName, attributeName);
